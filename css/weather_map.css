@@ -1,0 +1,191 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #345;
+}
+
+nav * {
+  user-select: none;
+}
+
+.container-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em auto;
+  color: white;
+  user-select: none;
+}
+
+/* Map Box stuff */
+
+.heading {
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+}
+
+#map {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 70vh;
+  border: 0.25em solid black;
+  border-radius: 1em;
+  box-shadow: 0 0 0.5em rgba(0 0 0 / 0.5);
+  margin: 0 10em;
+}
+
+/* map buttons */
+
+.container-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  z-index: 100;
+}
+
+.zoom-in,
+.zoom-out,
+.remove-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  width: 2.5em;
+  font-size: 20px;
+  padding: 10px 15px;
+}
+
+.popover-header, .popover {
+  font-size: 12px;
+  color: white;
+  background-color: #123 !important;
+  border: none !important;
+  border-radius: 1em !important;
+}
+
+.popover-header::before,
+.popover-header::after {
+  content: '';
+  background-color: none !important;
+}
+
+/* Search area */
+
+.container-search {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 30vw;
+  background-color: #357;
+  border-radius: 0.75em;
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  margin: 1em auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search {
+  background-color: #123;
+  margin: 0;
+}
+
+.search:hover {
+  background-color: #234;
+}
+
+button {
+  background-color: #345;
+  color: #fff;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  margin: 0.25em 0.5em;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Markers and popups */
+
+.mapboxgl-popup-content h1 {
+  color: lightblue;
+}
+
+.mapboxgl-marker {
+  height: 26px;
+  width: 19px;
+  background-image: url("../img/flat-design-map-pin-transparent-png-stickpng-18.png");
+  background-size: cover;
+  cursor: pointer;
+}
+
+.mapboxgl-marker svg {
+  display: none;
+}
+
+.mapboxgl-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: stretch;
+  color: white;
+  box-shadow: inset 0 0 0.5em #fff;
+  background-color: #345;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.mapboxgl-popup-close-button {
+  font-size: 1em !important;
+  color: azure;
+  overflow: hidden;
+  outline: none;
+  margin: 0;
+}
+
+.mapboxgl-popup-close-button:hover {
+  color: white;
+  background-color: red;
+  overflow: hidden;
+  margin: 0;
+  z-index: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  #map {
+    height: 70vh;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+  .container-search {
+    width: fit-content;
+    padding: 0;
+    margin: 3.5em auto;
+  }
+  .search-input {
+    width: 80vw;
+  }
+}
