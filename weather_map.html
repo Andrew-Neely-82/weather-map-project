@@ -45,19 +45,29 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-            <button class="btn btn-primary" type="submit">Search</button>
-          </form>
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-primary" type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+            </button>
         </div>
       </div>
     </nav>
     <!-- End nav section -->
-    <div class="container-header">
+    <!-- <div class="container-header">
       <h1 class="header">My First Weather Map</h1>
-    </div>
+    </div> -->
 
     <!-- TODO Weather stuff here? -->
+
+    <div class="wrapper-current-weather">
+      <div class="container-current-weather-location">
+        <h1>Current Weather for Fort Bragg</h1>
+        <hr>
+        <div class="container-1-1"></div>
+      </div>
+    </div>
 
     <!-- start map section -->
     <div id="map">
@@ -94,5 +104,5 @@
     <script id="jquery" src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script id="keys" src="./js/keys.js"></script>
     <script id="weather_map" src="./js/weather_map.js"></script>
-  </body> 
+  </body>
 </html>

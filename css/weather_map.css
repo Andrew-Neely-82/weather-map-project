@@ -5,12 +5,53 @@
 }
 
 body {
-  background: #345;
+  background: #112;
+  color: white;
 }
+
+/* navbar */
 
 nav * {
   user-select: none;
 }
+
+.form-control {
+  width: 20vw;
+  background-color: #345;
+  border: 1px solid #112;
+  border-right: none;
+  color: white;
+  margin: 0;
+  border-radius: 0;
+}
+
+.form-control::placeholder {
+  color: lightgray;
+}
+
+.form-control:focus {
+  color: white;
+  background-color: #345;
+  border: 1px solid #112;
+  border-right: none;
+  outline: none !important;
+}
+
+.btn {
+  background-color: #345;
+  border: 1px solid #112;
+  border-left: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+.btn:hover {
+  transform: scale(1);
+  border: 1px solid #112 !important;
+  border-left: none !important;
+}
+
+/* header */
 
 .container-header {
   display: flex;
@@ -21,6 +62,50 @@ nav * {
   user-select: none;
 }
 
+/* weather info */
+
+.wrapper-current-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  margin: 0 0 1em 0;
+}
+
+.container-current-weather-location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.container-current-weather-location h1 {
+  margin-top: 1em !important;
+}
+
+hr {
+  width: 50%;
+  border: 2px solid white;
+  border-radius: 3em;
+  margin: 0;
+}
+
+.container-1-1 {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  background-color: black;
+  user-select: none;
+  /* border-top: 1px solid white; */
+}
+
+.container-1-1 span {
+  border: none;
+  margin: 1em;
+}
 /* Map Box stuff */
 
 .heading {
@@ -64,7 +149,8 @@ nav * {
   padding: 10px 15px;
 }
 
-.popover-header, .popover {
+.popover-header,
+.popover {
   font-size: 12px;
   color: white;
   background-color: #123 !important;
@@ -74,7 +160,7 @@ nav * {
 
 .popover-header::before,
 .popover-header::after {
-  content: '';
+  content: "";
   background-color: none !important;
 }
 
