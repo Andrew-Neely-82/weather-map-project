@@ -48,10 +48,6 @@
         units: "imperial",
       }).done(function (data) {
         console.log(data);
-        // write a function that takes the day of the week as a parameter and returns the high and low for that day
-        // use the function to get the high and low for monday to friday using the data from the api
-        // use the function to also get the windspeed and humidity for monday to friday
-        // use the data to update the html
         function getDay(day) {
           let dayData = data.list.filter((item) => {
             return item.dt_txt.includes(day);
