@@ -113,11 +113,12 @@ hr {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: gray;
+  background-color: #123;
 }
 
 .wrapper-forecast h1 {
   margin: .5em;
+  text-shadow: 0 0 1em black;
 }
 
 .container-forecast {
@@ -136,6 +137,7 @@ hr {
   background-color: #112;
   border: 1px solid white;
   border-radius: .5em;
+  box-shadow: 0 0 1em black;
   padding: 1em 2em;
 }
 
