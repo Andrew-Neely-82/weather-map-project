@@ -71,7 +71,7 @@ nav * {
   align-items: center;
   width: 100%;
   background-color: black;
-  margin: 0 0 1em 0;
+  /* margin: 0 0 1em 0; */
 }
 
 .container-current-weather-location {
@@ -106,6 +106,43 @@ hr {
   border: none;
   margin: 1em;
 }
+
+.wrapper-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: gray;
+}
+
+.wrapper-forecast h1 {
+  margin: .5em;
+}
+
+.container-forecast {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 1em;
+}
+
+.dis-flex {
+  display: flex;
+}
+
+.card {
+  width: 12em;
+  background-color: #112;
+  border: 1px solid white;
+  border-radius: .5em;
+  padding: 1em 2em;
+}
+
+.card h3 {
+  border-bottom: 1px solid white;
+}
+
 /* Map Box stuff */
 
 .heading {
@@ -124,6 +161,7 @@ hr {
   border-radius: 1em;
   box-shadow: 0 0 0.5em rgba(0 0 0 / 0.5);
   margin: 0 10em;
+  margin-top: 2em;
 }
 
 /* map buttons */
