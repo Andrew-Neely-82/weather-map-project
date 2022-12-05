@@ -78,7 +78,7 @@
         }
       })
     );
-
+ 
   // * map initialilzation
   mapboxgl.accessToken = mapboxKey;
   const map = new mapboxgl.Map({
