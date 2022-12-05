@@ -178,7 +178,9 @@
           },
         });
       });
-      $(`.search-input`).keypress((e) => {
+      const searchInput = `.search-input`
+      const topSearch = `.form-control`
+      $(searchInput).keypress((e) => {
         if (e.keyCode === 13 || e.keyCode === 27) {
           $(`.search`).click();
           markerPositionWeather();
@@ -191,25 +193,25 @@
       // * hide marker forecast feature until called
       $(`.container-forecast-marker`).hide();
       // * blur page while searching for location
-      $(`.search-input`).focusin(() => {
+      $(searchInput).focusin(() => {
         $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker`).addClass(`blur`);
         $(`.search`).css(`filter`, `brightness(1)`);
       });
-      $(`.search-input`).focusout(() => {
+      $(searchInput).focusout(() => {
         $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker`).removeClass(`blur`);
       });
-      $(`.search-input`).keyup((e) => {
+      $(searchInput).keyup((e) => {
         if (e.keyCode === 13 || e.keyCode === 27) {
           $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker`).removeClass(`blur`);
         }
       });
-      $(`.form-control`).focusin(() => {
+      $(topSearch).focusin(() => {
         $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).addClass(`blur`);
       });
-      $(`.form-control`).focusout(() => {
+      $(topSearch).focusout(() => {
         $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).removeClass(`blur`);
       });
-      $(`.form-control`).keyup((e) => {
+      $(topSearch).keyup((e) => {
         if (e.keyCode === 13 || e.keyCode === 27) {
           $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).removeClass(`blur`);
         }
