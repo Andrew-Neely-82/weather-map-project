@@ -311,6 +311,7 @@ button {
   width: 19px;
   background-image: url("../img/flat-design-map-pin-transparent-png-stickpng-18.png");
   background-size: cover;
+  transition: none;
   cursor: pointer;
 }
 
