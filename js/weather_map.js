@@ -83,7 +83,7 @@
   mapboxgl.accessToken = mapboxKey;
   const map = new mapboxgl.Map({
     container: "map",
-    style: "mapbox://styles/mapbox/streets-v12",
+    style: "mapbox://styles/mapbox/navigation-night-v1",
     center: [-79.02119103975892, 35.12703524187906], // starting position [lng, lat]
     zoom: 10, // starting zoom
   });

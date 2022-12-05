@@ -120,7 +120,7 @@ nav * {
 
 hr {
   width: 50%;
-  border: 2px solid white;
+  border: 1px solid white !important;
   border-radius: 3em;
   margin: 0;
 }
@@ -210,6 +210,7 @@ hr {
   height: 2.5em;
   width: 2.5em;
   font-size: 20px;
+  border: 1px solid white;
   box-shadow: 0 0 0.5em rgba(0 0 0 / 0.5);
   padding: 10px 15px;
 }
