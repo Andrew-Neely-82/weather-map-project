@@ -78,7 +78,7 @@
         }
       })
     );
- 
+
   // * map initialilzation
   mapboxgl.accessToken = mapboxKey;
   const map = new mapboxgl.Map({
@@ -157,61 +157,63 @@
     $(`#search`).keyup((e) => {
       if (e.keyCode === 13) {
         $(`#submit`).click();
-      }
-      else if (e.keyCode === 27) {
+      } else if (e.keyCode === 27) {
         $(`#search`).click();
       }
     });
+
     // * main search feature
-    $(`.search`).click(() => {
-      const search = $(`.search-input`).val();
-      const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${search}.json?access_token=${mapboxgl.accessToken}`;
-      $.ajax({
-        url: url,
-        success: (data) => {
-          const coordinates = data.features[0].center;
-          map.flyTo({
-            center: coordinates,
-            zoom: 15,
-          });
-        },
+    $(document).ready(() => {
+      $(`.search`).click(() => {
+        const search = $(`.search-input`).val();
+        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${search}.json?access_token=${mapboxgl.accessToken}`;
+        $.ajax({
+          url: url,
+          success: (data) => {
+            const coordinates = data.features[0].center;
+            map.flyTo({
+              center: coordinates,
+              zoom: 15,
+            });
+          },
+        });
       });
-    });
-    $(`.search-input`).keypress((e) => {
-      if (e.keyCode === 13 || e.keyCode === 27) {
-        $(`.search`).click();
+      $(`.search-input`).keypress((e) => {
+        if (e.keyCode === 13 || e.keyCode === 27) {
+          $(`.search`).click();
+          markerPositionWeather();
+        }
+      });
+      // * add marker feature
+      $(`.add-marker`).click(() => {
         markerPositionWeather();
-      }
-    });
-    // * add marker feature
-    $(`.add-marker`).click(() => {
-      markerPositionWeather();
-    });
-    // * hide marker forecast feature until called
-    $(`.container-forecast-marker`).hide();
-    // * blur page while searching for location
-    $(`.search-input`).focusin(() => {
-      $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker`).addClass(`blur`);
-      $(`.search`).css(`filter`, `brightness(1)`);
-    });
-    $(`.search-input`).focusout(() => {
-      $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker`).removeClass(`blur`);
-    });
-    $(`.search-input`).keyup((e) => {
-      if (e.keyCode === 13 || e.keyCode === 27) {
+      });
+      // * hide marker forecast feature until called
+      $(`.container-forecast-marker`).hide();
+      // * blur page while searching for location
+      $(`.search-input`).focusin(() => {
+        $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker`).addClass(`blur`);
+        $(`.search`).css(`filter`, `brightness(1)`);
+      });
+      $(`.search-input`).focusout(() => {
         $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker`).removeClass(`blur`);
-      }
-    });
-    $(`.form-control`).focusin(() => {
-      $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).addClass(`blur`);
-    });
-    $(`.form-control`).focusout(() => {
-      $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).removeClass(`blur`);
-    });
-    $(`.form-control`).keyup((e) => {
-      if (e.keyCode === 13 || e.keyCode === 27) {
+      });
+      $(`.search-input`).keyup((e) => {
+        if (e.keyCode === 13 || e.keyCode === 27) {
+          $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker`).removeClass(`blur`);
+        }
+      });
+      $(`.form-control`).focusin(() => {
+        $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).addClass(`blur`);
+      });
+      $(`.form-control`).focusout(() => {
         $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).removeClass(`blur`);
-      }
+      });
+      $(`.form-control`).keyup((e) => {
+        if (e.keyCode === 13 || e.keyCode === 27) {
+          $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).removeClass(`blur`);
+        }
+      });
     });
   });
 
