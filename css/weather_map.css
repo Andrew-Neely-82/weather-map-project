@@ -190,8 +190,7 @@ hr {
   border: 2px solid white;
   border-radius: 1em;
   box-shadow: 0 0 0.5em rgba(0 0 0 / 1);
-  margin: 0 10em;
-  margin-top: 2em;
+  margin: 2em 10em 0;
 }
 
 /* map buttons */
