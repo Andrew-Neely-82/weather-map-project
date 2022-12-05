@@ -206,10 +206,10 @@
         }
       });
       $(topSearch).focusin(() => {
-        $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).addClass(`blur`);
+        $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .container-search, .search-input`).addClass(`blur`);
       });
       $(topSearch).focusout(() => {
-        $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .search-input`).removeClass(`blur`);
+        $(`.wrapper-current-weather, .wrapper-forecast, #map, .wrapper-forecast-marker, .container-search, .search-input`).removeClass(`blur`);
       });
       $(topSearch).keyup((e) => {
         if (e.keyCode === 13 || e.keyCode === 27) {
