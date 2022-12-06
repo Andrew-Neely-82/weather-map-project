@@ -65,14 +65,33 @@ nav * {
   box-shadow: inset var(--bs-1em-blk);
 }
 
+.container {
+  margin: 0;
+}
+
+#contrast {
+  height: 100% !important;
+  border: 1px solid var(--bg-clr);
+  border-radius: 0.5em;
+  margin: 0 0.5em;
+}
+
+
 .form-control {
   width: 20vw;
   background: var(--btn-clr);
   border: 1px solid var(--bg-clr);
   border-right: none;
+  border-top-left-radius: 0.5em !important;
+  border-bottom-left-radius: 0.5em !important;
   color: white;
   margin: 0;
   border-radius: 0;
+}
+
+#submit {
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
 }
 
 .form-control::placeholder {
@@ -163,6 +182,7 @@ hr {
 .card {
   width: 12em;
   background: var(--bg-clr);
+  box-shadow: 0 0 1em black;
   border: 2px solid white;
   border-radius: 0.5em;
   padding: 1em 2em;
@@ -189,7 +209,7 @@ hr {
   height: 70vh;
   border: 2px solid white;
   border-radius: 1em;
-  box-shadow: 0 0 0.5em rgba(0 0 0 / 1);
+  box-shadow: 0 0 1em rgba(0 0 0 / 1);
   margin: 2em 10em 0;
 }
 
@@ -259,7 +279,9 @@ hr {
 
 .search-input {
   border: 1px solid black;
-  border-radius: 5px;
+  border-right: none;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
   padding: 10px;
 }
 
@@ -276,6 +298,12 @@ hr {
 }
 
 .search {
+  border: 1px solid black;
+  border-left: none;
+  border-top-left-radius: 0em;
+  border-bottom-left-radius: 0em;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
   background: #123;
   margin: 0;
 }
@@ -371,9 +399,45 @@ footer a:active {
   box-shadow: var(--bs-1em-blk);
 }
 
+.ts-1em-blk {
+  text-shadow: 0 0 3px black;
+}
+
 .blur {
   filter: blur(10px);
   transition: all 250ms ease-in-out;
+}
+
+.clr-black {
+  color: #000;
+}
+
+.clr-white {
+  color: #fff !important;
+}
+
+.bg-clr-6 {
+  background-color: #666 !important;
+}
+
+.bg-clr-f8 {
+  background-color: #f8f9fa !important;
+}
+
+.bg-clr-aaa {
+  background-color: #aaa !important;
+}
+
+.bg-clr-white {
+  background-color: #fff !important;
+}
+
+.border-white {
+  border: 2px solid white !important;
+}
+
+.border-black {
+  border: 1px solid black !important;
 }
 
 /* media queries */
@@ -383,20 +447,34 @@ footer a:active {
     display: none;
   }
 
+  .container-fluid {
+    padding: 0 1em;
+  }
+
+  .navbar-toggler {
+    margin: 0 !important;
+  }
+
   .container-current-weather-location {
     margin-top: 3em;
   }
 
-  .collapse .container {
+  .collapse {
     justify-content: flex-start !important;
     width: 100vw !important;
     margin: 0 !important;
     padding: 0;
   }
 
+  .container {
+    justify-content: center !important;
+    width: max-content !important;
+    margin: 0 !important;
+  }
+
   #search {
     display: inline;
-    width: 80%;
+    width: fit-content;
     margin: 0;
   }
 
@@ -413,6 +491,14 @@ footer a:active {
     font-size: 7vmin;
     text-align: center;
     margin: 0.5em auto;
+  }
+
+  .border-white  {
+    border: none !important;
+  }
+
+  .card {
+    border-radius: 0 !important;
   }
 
   hr {
@@ -446,6 +532,13 @@ footer a:active {
     margin: 0;
   }
 
+  .container-forecast-2 {
+    width: 100%;
+    background: #666 !important;
+    padding: 0;
+    margin: 0;
+  }
+
   .container-forecast .card {
     width: 5em;
     font-size: small;
@@ -467,6 +560,7 @@ footer a:active {
 
   .container-search {
     width: 80vw;
+    background-color: transparent !important;
     border-radius: 0;
     border: none;
     padding: 0;

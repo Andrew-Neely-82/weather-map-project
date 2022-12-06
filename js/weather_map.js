@@ -66,11 +66,11 @@
           const forecast = {
             divO: `<div class="card">`,
             day: `<h3>${dayOfWeek}</h3>`,
-            high: `<span class="red">${icon.high} ${day.main.temp_max}°F</span>`,
-            low: `<span class="blue">${icon.low} ${day.main.temp_min}°F</span>`,
-            humidity: `<span>${icon.humidity} ${day.main.humidity}%</span>`,
-            condition: `<span>${icon.condition} ${day.weather[0].main}</span>`,
-            wind: `<span>${icon.wind} ${day.wind.speed}mph</span>`,
+            high: `<span class="red">${icon.high} &nbsp;${day.main.temp_max}°F</span>`,
+            low: `<span class="blue">${icon.low} &nbsp;${day.main.temp_min}°F</span>`,
+            humidity: `<span>${icon.humidity} &nbsp;${day.main.humidity}%</span>`,
+            condition: `<span>${icon.condition} &nbsp;${day.weather[0].main}</span>`,
+            wind: `<span>${icon.wind} &nbsp;${day.wind.speed}mph</span>`,
             divC: `</div>`,
           };
           const containers = [$(`#container-2-1`), $(`#container-2-2`), $(`#container-2-3`), $(`#container-2-4`), $(`#container-2-5`)];
@@ -84,8 +84,8 @@
   const map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/mapbox/navigation-night-v1",
-    center: [-79.02119103975892, 35.12703524187906], // starting position [lng, lat]
-    zoom: 10, // starting zoom
+    center: [-79.02115, 35.1264], // starting position [lng, lat]
+    zoom: 15, // starting zoom
   });
 
   // * popover text for map buttons
@@ -149,7 +149,7 @@
           .addTo(map);
         map.flyTo({
           center: coordinates,
-          zoom: 10,
+          zoom: 12,
         });
       });
       $(`.mapboxgl-marker`).markerPositionWeather(getDay(day));
@@ -173,13 +173,13 @@
             const coordinates = data.features[0].center;
             map.flyTo({
               center: coordinates,
-              zoom: 15,
+              zoom: 12,
             });
           },
         });
       });
-      const searchInput = `.search-input`
-      const topSearch = `.form-control`
+      const searchInput = `.search-input`;
+      const topSearch = `.form-control`;
       $(searchInput).keypress((e) => {
         if (e.keyCode === 13 || e.keyCode === 27) {
           $(`.search`).click();
@@ -247,11 +247,11 @@
           const forecast = {
             divO: `<div class="card">`,
             day: `<h3>${dayOfWeek}</h3>`,
-            high: `<span class="red">${icon.high} ${day.main.temp_max}°F</span>`,
-            low: `<span class="blue">${icon.low} ${day.main.temp_min}°F</span>`,
-            humidity: `<span>${icon.humidity} ${day.main.humidity}%</span>`,
-            condition: `<span>${icon.condition} ${day.weather[0].main}</span>`,
-            wind: `<span>${icon.wind} ${day.wind.speed} mph</span>`,
+            high: `<span class="red">${icon.high} &nbsp;${day.main.temp_max}°F</span>`,
+            low: `<span class="blue">${icon.low} &nbsp;${day.main.temp_min}°F</span>`,
+            humidity: `<span>${icon.humidity} &nbsp;${day.main.humidity}%</span>`,
+            condition: `<span>${icon.condition} &nbsp;${day.weather[0].main}</span>`,
+            wind: `<span>${icon.wind} &nbsp;${day.wind.speed} mph</span>`,
             divC: `</div>`,
           };
           $(`.container-forecast-marker`).show();
@@ -262,4 +262,51 @@
       });
     });
   }
+
+  // * toggle contrast feature
+  $(document).ready(() => {
+    $(`#contrast`).click(() => {
+      $(`body`).toggleClass(`bg-clr-f8`);
+      $(`.container-current-weather-location`).toggleClass(`bg-clr-6`);
+      $(`.container-current-weather-location`).toggleClass(`clr-white`);
+      $(`.container-1-1`).toggleClass(`bg-clr-6`);
+      $(`.wrapper-forecast`).toggleClass(`bg-clr-aaa`);
+      $(`.wrapper-forecast-marker`).toggleClass(`bg-clr-aaa`);
+      $(`.container-search`).toggleClass(`bg-clr-6`);
+      $(`span`).toggleClass(`ts-1em-blk`);
+      $(`.search`).toggleClass(`clr-black`);
+      $(`.search`).toggleClass(`bg-clr-f8`);
+      $(`.search`).toggleClass(`border-black`);
+      if ($(`.card`).hasClass(`bg-clr-6`)) {
+        $(`.card`).removeClass(`bg-clr-6`);
+        $(`.card`).removeClass(`border-white`);
+        $(`.card`).removeClass(`clr-white`);
+      } else {
+        $(`.card`).addClass(`bg-clr-6`);
+        $(`.card`).addClass(`border-white`);
+        $(`.card`).addClass(`clr-white`);
+      }
+    });
+  });
+
+  $(document).ready(() => {
+    const contrastIcon = {
+      sun: `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+          <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>`,
+      moon: `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
+          <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>`,
+    };
+    $(`#contrast`).click(() => {
+      $(`#contrast`).toggleClass(`contrast-icon`);
+      if ($(`#contrast`).hasClass(`contrast-icon`)) {
+        $(`#contrast`).html(`${contrastIcon.moon}`);
+      } else {
+        $(`#contrast`).html(`${contrastIcon.sun}`);
+      }
+    });
+  });
 })();
