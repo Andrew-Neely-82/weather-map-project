@@ -272,7 +272,7 @@
       $(`.container-1-1`).toggleClass(`bg-clr-6`);
       $(`.wrapper-forecast`).toggleClass(`bg-clr-aaa`);
       $(`.wrapper-forecast-marker`).toggleClass(`bg-clr-aaa`);
-      $(`.container-search`).toggleClass(`bg-clr-6`);
+      $(`.container-search`).toggleClass(`bg-clr-aaa`);
       $(`span`).toggleClass(`ts-1em-blk`);
       $(`.search`).toggleClass(`clr-black`);
       $(`.search`).toggleClass(`bg-clr-f8`);
