@@ -84,9 +84,10 @@ nav * {
   border-right: none;
   border-top-left-radius: 0.5em !important;
   border-bottom-left-radius: 0.5em !important;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   color: white;
   margin: 0;
-  border-radius: 0;
 }
 
 #submit {
@@ -300,10 +301,7 @@ hr {
 .search {
   border: 1px solid black;
   border-left: none;
-  border-top-left-radius: 0em;
-  border-bottom-left-radius: 0em;
-  border-top-right-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  border-radius: 0 0.5em 0.5em 0;
   background: #123;
   margin: 0;
 }
