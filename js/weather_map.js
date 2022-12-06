@@ -40,7 +40,7 @@
       q: `Fort Bragg, US`,
       units: "imperial",
     })
-      .done(function (data) {
+      .done((data) => {
         const cur = {
           divO: `<div class="container-1-1">`,
           temp: `<span>${icon.headTemp} ${data.main.temp}°F</span>`,
@@ -56,7 +56,7 @@
           APPID: weatherKey,
           q: "Fort Bragg, US",
           units: "imperial",
-        }).done(function (data) {
+        }).done((data) => {
           let reports = data.list;
           console.log(data);
           for (let i = 0; i < reports.length; i += 8) {
@@ -222,7 +222,7 @@
   });
 
   // * map marker functionality
-  function markerPositionWeather() {
+  const markerPositionWeather = () => {
     const marker = new mapboxgl.Marker({
       draggable: true,
     })
