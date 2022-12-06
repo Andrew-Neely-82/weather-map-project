@@ -34,50 +34,52 @@
   };
 
   // * current and forecast weather
-  $.get(`https://api.openweathermap.org/data/2.5/weather`, {
-    APPID: weatherKey,
-    q: `Fort Bragg, US`,
-    units: "imperial",
-  })
-    .done(function (data) {
-      const cur = {
-        divO: `<div class="container-1-1">`,
-        temp: `<span>${icon.headTemp} ${data.main.temp}°F</span>`,
-        condition: `<span>${icon.condition} ${data.weather[0].main}</span>`,
-        humidity: `<span>${icon.humidity} ${data.main.humidity}%</span>`,
-        wind: `<span>${icon.wind} ${data.wind.speed}mph</span>`,
-        divC: `</div>`,
-      };
-      $(`.container-1-1`).html(`${cur.divO}${cur.temp}${cur.condition}${cur.humidity}${cur.wind}${cur.divC}`);
+  $(document).ready(() => {
+    $.get(`https://api.openweathermap.org/data/2.5/weather`, {
+      APPID: weatherKey,
+      q: `Fort Bragg, US`,
+      units: "imperial",
     })
-    .then(
-      $.get("https://api.openweathermap.org/data/2.5/forecast", {
-        APPID: weatherKey,
-        q: "Fort Bragg, US",
-        units: "imperial",
-      }).done(function (data) {
-        let reports = data.list;
-        console.log(data);
-        for (let i = 0; i < reports.length; i += 8) {
-          let day = reports[i];
-          let daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-          let date = new Date(day.dt * 1000);
-          let dayOfWeek = daysOfTheWeek[date.getDay()];
-          const forecast = {
-            divO: `<div class="card">`,
-            day: `<h3>${dayOfWeek}</h3>`,
-            high: `<span class="red">${icon.high} &nbsp;${day.main.temp_max}°F</span>`,
-            low: `<span class="blue">${icon.low} &nbsp;${day.main.temp_min}°F</span>`,
-            humidity: `<span>${icon.humidity} &nbsp;${day.main.humidity}%</span>`,
-            condition: `<span>${icon.condition} &nbsp;${day.weather[0].main}</span>`,
-            wind: `<span>${icon.wind} &nbsp;${day.wind.speed}mph</span>`,
-            divC: `</div>`,
-          };
-          const containers = [$(`#container-2-1`), $(`#container-2-2`), $(`#container-2-3`), $(`#container-2-4`), $(`#container-2-5`)];
-          containers[i / 8].html(`${forecast.divO}${forecast.day}${forecast.high}${forecast.low}${forecast.humidity}${forecast.condition}${forecast.wind}${forecast.divC}`);
-        }
+      .done(function (data) {
+        const cur = {
+          divO: `<div class="container-1-1">`,
+          temp: `<span>${icon.headTemp} ${data.main.temp}°F</span>`,
+          condition: `<span>${icon.condition} ${data.weather[0].main}</span>`,
+          humidity: `<span>${icon.humidity} ${data.main.humidity}%</span>`,
+          wind: `<span>${icon.wind} ${data.wind.speed}mph</span>`,
+          divC: `</div>`,
+        };
+        $(`.container-1-1`).html(`${cur.divO}${cur.temp}${cur.condition}${cur.humidity}${cur.wind}${cur.divC}`);
       })
-    );
+      .then(
+        $.get("https://api.openweathermap.org/data/2.5/forecast", {
+          APPID: weatherKey,
+          q: "Fort Bragg, US",
+          units: "imperial",
+        }).done(function (data) {
+          let reports = data.list;
+          console.log(data);
+          for (let i = 0; i < reports.length; i += 8) {
+            let day = reports[i];
+            let daysOfTheWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            let date = new Date(day.dt * 1000);
+            let dayOfWeek = daysOfTheWeek[date.getDay()];
+            const forecast = {
+              divO: `<div class="card">`,
+              day: `<h3>${dayOfWeek}</h3>`,
+              high: `<span class="red">${icon.high} &nbsp;${day.main.temp_max}°F</span>`,
+              low: `<span class="blue">${icon.low} &nbsp;${day.main.temp_min}°F</span>`,
+              humidity: `<span>${icon.humidity} &nbsp;${day.main.humidity}%</span>`,
+              condition: `<span>${icon.condition} &nbsp;${day.weather[0].main}</span>`,
+              wind: `<span>${icon.wind} &nbsp;${day.wind.speed}mph</span>`,
+              divC: `</div>`,
+            };
+            const containers = [$(`#container-2-1`), $(`#container-2-2`), $(`#container-2-3`), $(`#container-2-4`), $(`#container-2-5`)];
+            containers[i / 8].html(`${forecast.divO}${forecast.day}${forecast.high}${forecast.low}${forecast.humidity}${forecast.condition}${forecast.wind}${forecast.divC}`);
+          }
+        })
+      );
+  });
 
   // * map initialilzation
   mapboxgl.accessToken = mapboxKey;
