@@ -90,13 +90,6 @@
     zoom: 15, // starting zoom
   });
 
-  // * map marker
-  const marker = new mapboxgl.Marker({
-    draggable: true,
-  })
-    .setLngLat([-79.02115, 35.1264])
-    .addTo(map);
-
   // * popover text for map buttons
   $(() => {
     $(`.zoom-in`).hover(
@@ -228,6 +221,7 @@
     });
   });
 
+  // * map marker functionality
   function markerPositionWeather() {
     const marker = new mapboxgl.Marker({
       draggable: true,
@@ -271,6 +265,9 @@
       });
     });
   }
+
+  // * map marker
+  markerPositionWeather()
 
   // * toggle contrast feature
   $(document).ready(() => {
