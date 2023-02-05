@@ -1,0 +1,53 @@
+@import "./mixins";
+
+* {
+  font-family: "Roboto", sans-serif;
+  @include p0m0;
+}
+
+*:active {
+  transition: all 150ms;
+}
+
+body {
+  background: var(--bg-clr);
+  color: white;
+  box-shadow: inset var(--bs-1em-blk);
+}
+
+nav * {
+  user-select: none;
+}
+
+li {
+  a:hover {
+    color: white !important;
+  }
+}
+
+button {
+  background: var(--btn-clr);
+  color: white;
+  border: none;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  margin: 0.25em 0.5em;
+  cursor: pointer;
+  user-select: none;
+}
+
+hr {
+  width: 50%;
+  border: 1px solid white !important;
+  border-radius: 3em;
+  @include p0m0;
+}
+
+footer {
+  background: black;
+  box-shadow: var(--bs-1em-blk);
+  a:active {
+    filter: brightness(0.8);
+    transition: all 150ms;
+  }
+}

@@ -1,0 +1,213 @@
+/* media queries */
+
+@media screen and (max-width: 990px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .container-fluid {
+    padding: 0 1em;
+    .navbar-toggler {
+      margin: 0 !important;
+    }
+  }
+
+  .collapse {
+    justify-content: flex-start !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0;
+  }
+
+  .container-current-weather-location {
+    margin-top: 3em;
+  }
+
+  .container {
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #contrast {
+    margin: 0 1em 0 0 !important;
+  }
+
+  #search {
+    display: inline;
+    width: 100%;
+    margin: 0;
+  }
+
+  #submit {
+    display: inline;
+    margin: 0;
+  }
+
+  .container-current-weather-location {
+    box-shadow: none;
+    h1 {
+      font-size: 7vmin;
+      text-align: center;
+      margin: 0.5em auto;
+    }
+  }
+
+  .forecast {
+    .card {
+      @include border(0, 0);
+    }
+  }
+
+  hr {
+    width: 70vw;
+  }
+
+  .container-1-1 {
+    width: 100%;
+    span {
+      width: 5em;
+      text-align: center;
+      font-size: 12px;
+      word-spacing: 10em;
+    }
+  }
+
+  h1 {
+    font-size: 7vmin;
+    text-align: center;
+  }
+
+  .container-forecast {
+    width: 100%;
+    background: var(--bg-clr);
+    @include p0m0;
+    span {
+      font-size: 10px;
+    }
+    .card {
+      width: 5em;
+      font-size: small;
+      line-height: 22px;
+      @include border(0, 0);
+      box-shadow: 0 0 0 transparent;
+      padding: 1em 0 !important;
+    }
+  }
+
+  .container-forecast-2 {
+    width: 100%;
+    background: #666 !important;
+    @include p0m0;
+  }
+
+  #map {
+    height: 70vh;
+    width: 100%;
+    @include border(0 !important, 0 !important);
+    box-shadow: none;
+    margin: 0 !important;
+  }
+
+  .container-search {
+    min-width: 95vw;
+    background-color: transparent !important;
+    padding: 0;
+    // margin: 1.5em auto;
+  }
+
+  .search-input {
+    width: 80vw;
+  }
+
+  .container-forecast-marker {
+    width: 100vw;
+    background: var(--bg-clr);
+    padding: 0;
+    .card {
+      box-shadow: none;
+      width: fit-content;
+      font-size: 10px;
+      padding: 1em 0;
+      margin: 0;
+    }
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column-reverse;
+    .nav {
+      width: 100%;
+      justify-content: center !important;
+    }
+    p {
+      width: 100% !important;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .navbar {
+    .container {
+      height: 1em;
+      font-size: 2em;
+      margin: 0 0.125em;
+      * {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .navbar > * {
+    font-size: 2em;
+  }
+
+  .container-current-weather-location {
+    margin-top: 3.5em;
+    span {
+      font-size: 2em;
+    }
+  }
+
+  h1 {
+    font-size: 4em;
+    margin-bottom: 0.5em;
+  }
+
+  .wrapper-forecast h1 {
+    font-size: 3em;
+  }
+
+  .card {
+    height: fit-content;
+    width: 20em;
+    h3 {
+      font-size: 2em;
+    }
+  }
+
+  .card > * {
+    font-size: 1.5em;
+  }
+
+  #map {
+    margin-top: 5em;
+  }
+
+  .container-button {
+    button {
+      transform: scale(1.5);
+      margin: 1em;
+    }
+  }
+
+  .container-search {
+    margin-bottom: 4em;
+  }
+
+  footer {
+    font-size: 2em;
+  }
+}

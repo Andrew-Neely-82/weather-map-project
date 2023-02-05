@@ -1,0 +1,39 @@
+:root {
+  --bg-clr: #1a1a2a;
+  --btn-clr: #345;
+  --blue: #6495ed;
+  --bs-1em-blk: 0 0 1em black;
+}
+
+// * flexbox variables
+
+$display: (
+  flex: flex,
+);
+
+$flex-direction: (
+  row: row,
+  column: column,
+);
+
+$justify-content: (
+  center: center,
+  flex-start: flex-start,
+  flex-end: flex-end,
+  space-between: space-between,
+  space-around: space-around,
+  space-evenly: space-evenly,
+  stretch: stretch,
+);
+
+$align-items: (
+  center: center,
+  flex-start: flex-start,
+  flex-end: flex-end,
+  space-around: space-around,
+);
+
+$flex-wrap: (
+  wrap: wrap,
+  nowrap: nowrap,
+);

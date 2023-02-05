@@ -1,0 +1,335 @@
+@import "./variables";
+@import "./defaults";
+@import "./mediaQueries";
+
+/* navbar */
+
+.navbar {
+  position: fixed !important;
+  z-index: 10000;
+  a {
+    text-shadow: var(--bs-1em-blk);
+    &:active {
+      filter: brightness(0.8);
+      transition: all 150ms ease-in-out;
+    }
+  }
+}
+
+// .collapse .container {
+//   justify-content: flex-end;
+// }
+
+// .dropdown-menu {
+//   background: #123;
+//   border: 1px solid white;
+//   transition: all 150ms ease-in-out;
+//   a {
+//     color: white;
+//     text-shadow: var(--bs-1em-blk);
+//   }
+//   a:hover {
+//     background: var(--bg-clr);
+//   }
+//   a:active {
+//     filter: brightness(0.8);
+//     box-shadow: inset var(--bs-1em-blk);
+//   }
+// }
+
+.container {
+  // this is for the search bar to go across the screen
+  @include p0m0;
+}
+
+// light-dark mode button
+#contrast {
+  height: 100% !important;
+  @include border(1px solid var(--bg-clr), 0.5em);
+  margin: 0 0.5em;
+}
+
+// search bar - bootstrap
+.form-control {
+  width: 20vw;
+  background: var(--btn-clr);
+  @include border(1px solid var(--bg-clr), 0.5em);
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  color: white;
+  margin: 0;
+
+  &::placeholder {
+    color: lightgray;
+  }
+  &:focus {
+    color: white;
+    background: var(--btn-clr);
+    @include border(1px solid var(--bg-clr), none);
+    border-right: none;
+    outline: none !important;
+  }
+}
+
+#submit {
+  background: var(--btn-clr);
+  @include border(1px solid var(--bg-clr), 0 0.5em 0.5em 0);
+  border-left: none;
+  margin: 0;
+}
+
+.btn {
+  &:hover {
+    transform: scale(1);
+    border: 1px solid var(--bg-clr) !important;
+    border-left: none !important;
+  }
+}
+
+/* header */
+
+.container-current-weather-location {
+  margin-top: 2em;
+  h1 {
+    margin-top: 1em !important;
+  }
+}
+
+/* weather info */
+
+.wrapper-current-weather,
+.container-current-weather-location {
+  background: black;
+}
+
+.container-1-1 {
+  @include flexbox(flex, row, space-evenly, none, none);
+  width: 80%;
+  background: black;
+  user-select: none;
+  span {
+    border: none;
+    margin: 1em;
+  }
+}
+
+.wrapper-forecast,
+.wrapper-forecast-marker {
+  background: #1a2a3a;
+  h1 {
+    margin: 0.5em;
+    text-shadow: var(--bs-1em-blk);
+  }
+}
+
+.container-forecast,
+.container-forecast-marker {
+  @include flexbox(flex, row, space-evenly, center, nowrap);
+  padding: 0 1em 2em 1em;
+}
+
+.card {
+  width: 12em;
+  background: var(--bg-clr);
+  box-shadow: 0 0 1em black;
+  @include border(2px solid white, 0.5em);
+  padding: 1em 2em;
+  h3 {
+    font-size: 1.25em;
+    border-bottom: 1px solid white;
+  }
+}
+
+/* Map Box stuff */
+
+.heading {
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
+}
+
+#map {
+  @include flexbox(flex, row, flex-end, flex-start, none);
+  height: 70vh;
+  @include border(2px solid white, 1em);
+  box-shadow: 0 0 1em rgba(0 0 0 / 1);
+  margin: 2em 10em 0;
+}
+
+/* map buttons */
+
+.container-button {
+  user-select: none;
+  margin-top: 5px;
+  z-index: 100;
+}
+
+.zoom-in,
+.zoom-out,
+.remove-marker,
+.add-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5em;
+  width: 2.5em;
+  font-size: 20px;
+  border: 1px solid white;
+  box-shadow: 0 0 0.5em rgba(0 0 0 / 0.5);
+  padding: 10px 15px;
+  &:hover {
+    filter: brightness(1.5);
+    transition: all 200ms ease-in-out;
+  }
+  &:active {
+    filter: brightness(0.95);
+    transition: all 200ms ease;
+    box-shadow: 0 0 10px black inset;
+  }
+}
+
+.popover-header,
+.popover {
+  font-size: 12px;
+  color: white;
+  background: #123 !important;
+  @include border(1px solid white !important, 1em !important);
+}
+
+/* Search area */
+
+.container-search {
+  @include flexbox(flex, row, center, stretch, nowrap);
+  width: 50vw;
+  background: #1a2a3a;
+  @include border(2px solid white, 0.75em);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  margin: 1em auto;
+  button {
+    background: var(--btn-clr);
+    &:hover {
+      filter: brightness(1.5);
+    }
+  }
+}
+
+.search-input {
+  @include border(1px solid black, 0);
+  border-right: 0;
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  padding: 10px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.search {
+  @include border(1px solid black, 0 0.5em 0.5em 0);
+  margin: 0;
+  &:hover {
+    filter: brightness(1.5) !important;
+    transition: all 150ms ease-in-out;
+  }
+  &:active {
+    filter: brightness(0.8);
+    box-shadow: 0 0 10px black inset;
+  }
+}
+
+/* Markers and popups */
+
+.mapboxgl-popup-content {
+  h1 {
+    color: lightblue;
+  }
+}
+
+.mapboxgl-marker {
+  height: 26px;
+  width: 19px;
+  background-image: url("../img/flat-design-map-pin-transparent-png-stickpng-18.png");
+  background-size: cover;
+  transition: none;
+  cursor: pointer;
+  svg {
+    display: none;
+  }
+}
+
+/* marker forecast results */
+
+.wrapper-forecast-marker {
+  box-shadow: var(--bs-1em-blk);
+}
+
+.marker-forecast-name {
+  text-shadow: 0 0 0.5em black !important;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+/* 
+  special classes used with javascript
+*/
+
+.df-fdc-jcc-aic {
+  @include df-fdc-jcc-aic;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.bs-1em-blk {
+  box-shadow: var(--bs-1em-blk);
+}
+
+.ts-1em-blk {
+  text-shadow: 0 0 3px black;
+}
+
+.blur {
+  filter: blur(10px);
+  transition: all 250ms ease-in-out;
+}
+
+.clr-black {
+  color: #000;
+}
+
+.clr-white {
+  color: #fff !important;
+}
+
+.bg-clr-6 {
+  background-color: #666 !important;
+}
+
+.bg-clr-f8 {
+  background-color: #f8f9fa !important;
+}
+
+.bg-clr-aaa {
+  background-color: #aaa !important;
+}
+
+.bg-clr-white {
+  background-color: #fff !important;
+}
+
+.border-white {
+  border: 2px solid white !important;
+}
+
+.border-black {
+  border: 1px solid black !important;
+}
