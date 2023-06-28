@@ -32,10 +32,7 @@
         <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
       </svg>`,
   };
-  
-  const mapboxKey = `pk.eyJ1IjoiYW5kcmV3bmVlbHkiLCJhIjoiY2xiMm9rZnY2MDZqNDNwcWVxdWZmeHpsdCJ9.uVgP2A2FNPbrYaF1e2C2vw`;
-  const weatherKey = `c0abc75c6f087775ff2b461de8d85981`;
-  
+
   // * current and forecast weather
   $(document).ready(() => {
     $.get(`https://api.openweathermap.org/data/2.5/weather`, {
@@ -80,7 +77,7 @@
             const containers = [$(`#container-2-1`), $(`#container-2-2`), $(`#container-2-3`), $(`#container-2-4`), $(`#container-2-5`)];
             containers[i / 8].html(`${forecast.divO}${forecast.day}${forecast.high}${forecast.low}${forecast.humidity}${forecast.condition}${forecast.wind}${forecast.divC}`);
           }
-        })
+        }),
       );
   });
 
@@ -101,7 +98,7 @@
       },
       () => {
         $(`[data-toggle="zoom-in"]`).popover("hide");
-      }
+      },
     );
     $(`.zoom-out`).hover(
       () => {
@@ -109,7 +106,7 @@
       },
       () => {
         $('[data-toggle="zoom-out"]').popover(`hide`);
-      }
+      },
     );
     $(`.remove-marker`).hover(
       () => {
@@ -117,7 +114,7 @@
       },
       () => {
         $('[data-toggle="remove-marker"]').popover(`hide`);
-      }
+      },
     );
     $(`.add-marker`).hover(
       () => {
@@ -125,7 +122,7 @@
       },
       () => {
         $('[data-toggle="add-marker"]').popover(`hide`);
-      }
+      },
     );
   });
 
@@ -267,10 +264,10 @@
         }
       });
     });
-  }
+  };
 
   // * map marker
-  markerPositionWeather()
+  markerPositionWeather();
 
   // * toggle contrast feature
   $(document).ready(() => {
